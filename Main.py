@@ -76,14 +76,8 @@ class Board(object):
 
     def check_cell_neighbors(self, row_id, col_id):
         neigh_count = int()
-        neighbors = [(-1, 1),
-                     (0, 1),
-                     (1, 1),
-                     (-1, 0),
-                     (1, 0),
-                     (-1, -1),
-                     (0, -1),
-                     (1, -1)]
+        # List of 8 possible directions
+        neighbors = [(x, y) for x in (-1, 0, 1) for y in (-1, 0, 1) if (x, y) != (0, 0)]
         for adj in neighbors:
             x_adj = row_id + adj[0]
             y_adj = col_id + adj[1]
